@@ -3,12 +3,14 @@ game_board = [" "] * 9
 
 
 def display_game_board():
-    """Displays game game_board"""
+    """Displays game board"""
     for square in range(0, len(game_board), 3):
         print(f"|{game_board[square]}|{game_board[square + 1]}|{game_board[square + 2]}|")
 
 def update_position(position: int, turn_one: bool, player_pick: str) -> bool:
-    """Add player"""
+    """Add X or O to player selected position
+    return True if successfully added
+    otherwise return False"""
     if game_board[position - 1] == " ":
         if turn_one:
             game_board[position-1] = player_pick
